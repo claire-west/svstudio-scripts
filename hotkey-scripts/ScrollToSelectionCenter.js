@@ -24,7 +24,6 @@ function scrollViewport() {
   var editorView = SV.getMainEditor();
   var selection = editorView.getSelection();
   var viewport = editorView.getNavigation();
-  var timeAxis = SV.getProject().getTimeAxis();
   var selectedNotes = selection.getSelectedNotes();
   if (selectedNotes.length == 0) {
     return;
@@ -35,7 +34,7 @@ function scrollViewport() {
     var lastNote = selectedNotes[selectedNotes.length - 1];
 
     var firstNoteOnset = firstNote.getOnset();
-    var distanceToMiddle = (lastNote.getOnset() + lastNote.getDuration() - firstNoteOnset) / 2;
+    var distanceToMiddle = (lastNote.getEnd() - firstNoteOnset) / 2;
     var viewportRange = viewport.getTimeViewRange();
     var viewportWidth = viewportRange[1] - viewportRange[0];
     var targetLeft = firstNoteOnset + distanceToMiddle - (viewportWidth / 2);

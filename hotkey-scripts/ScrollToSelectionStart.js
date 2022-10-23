@@ -27,7 +27,6 @@ function scrollViewport() {
   var editorView = SV.getMainEditor();
   var selection = editorView.getSelection();
   var viewport = editorView.getNavigation();
-  var timeAxis = SV.getProject().getTimeAxis();
   var selectedNotes = selection.getSelectedNotes();
   if (selectedNotes.length == 0) {
     return;
