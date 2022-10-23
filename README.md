@@ -11,7 +11,7 @@ Scripts are only available for the Pro edition of SynthV Studio. You can find th
 ## hotkey-scripts
 While all scripts can be assigned a keybind, the "hotkey-scripts" folder contains scripts that are specifically intended to address the issues with SynthV's somewhat lacking keybind options, improve workflow, and reduce reliance on a mouse.
 
-These scripts perform a very basic funtion (such as moving a note up or down) and do not open any dialog boxes. Some of these scripts (such as moving notes around the piano roll) are extremely similar since each script must be assigned a separate hotkey.
+These scripts perform a very basic funtion (such as moving a note up or down) and do not open any dialog boxes unless absolutely necessary. Some of these scripts (such as moving notes around the piano roll) are extremely similar since each script must be assigned a separate hotkey.
 
 ## modifying these scripts or making your own
 Feel free to copy, modify, fork, etc. these scripts. Crediting me is appreciated but optional. You can find the scripting documentation for SynthV Studio here: https://resource.dreamtonics.com/scripting/index.html

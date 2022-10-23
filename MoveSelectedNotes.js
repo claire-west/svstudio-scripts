@@ -43,9 +43,9 @@ function main() {
     "message": "",
     "buttons": "OkCancel",
     "widgets": [
-    {
+      {
         "name": "measures",
-    "type": "TextBox",
+        "type": "TextBox",
         "label": "Measures",
         "default": "1"
       },
