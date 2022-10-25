@@ -32,6 +32,7 @@ function getMetronomeTrack() {
     var track = project.getTrack(i);
     if (track.getName() === TRACK_NAME) {
       project.removeTrack(i);
+      break;
     }
   }
 
