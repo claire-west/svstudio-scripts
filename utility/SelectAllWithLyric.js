@@ -9,6 +9,7 @@ var FORM_DEFAULTS = {
 function getClientInfo() {
   return {
     "name": SV.T(SCRIPT_TITLE),
+    "category": "Claire's Scripts - Utility",
     "author": "https://github.com/claire-west/svstudio-scripts",
     "versionNumber": 1,
     "minEditorVersion": 65537

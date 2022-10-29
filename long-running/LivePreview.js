@@ -20,6 +20,7 @@ var FINISH_LATE = 1/8;
 function getClientInfo() {
   return {
     "name": SV.T(SCRIPT_TITLE),
+    "category": "Claire's Scripts - Long-running",
     "author": "https://github.com/claire-west/svstudio-scripts",
     "versionNumber": 2,
     "minEditorVersion": 65537

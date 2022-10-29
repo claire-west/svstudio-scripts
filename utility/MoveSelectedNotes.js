@@ -3,6 +3,7 @@ var SCRIPT_TITLE = "Move Selected Notes";
 function getClientInfo() {
   return {
     "name": SV.T(SCRIPT_TITLE),
+    "category": "Claire's Scripts - Utility",
     "author": "claire",
     "versionNumber": 1,
     "minEditorVersion": 65537

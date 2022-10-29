@@ -17,6 +17,7 @@ var TRACK_NAME = "METRONOME";
 function getClientInfo() {
   return {
     "name": SV.T(SCRIPT_TITLE),
+    "category": "Claire's Scripts - Automation",
     "author": "https://github.com/claire-west/svstudio-scripts",
     "versionNumber": 1,
     "minEditorVersion": 65537
