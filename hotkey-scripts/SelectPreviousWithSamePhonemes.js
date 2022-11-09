@@ -24,23 +24,11 @@ function getClientInfo() {
 }
 
 function scrollToNote(note) {
-  var viewport = SV.getMainEditor().getNavigation();
-
-  if (SCROLL_H) {
-    var onset = note.getOnset();
-    var distanceToMiddle = (note.getEnd() - onset) / 2;
-    var viewportRange = viewport.getTimeViewRange();
-    var viewportWidth = viewportRange[1] - viewportRange[0];
-    var targetLeft = onset + distanceToMiddle - (viewportWidth / 2);
-    if (targetLeft < 0) {
-      targetLeft = 0;
-    }
-    viewport.setTimeLeft(targetLeft);
-  }
-
-  if (SCROLL_V) {
-    viewport.setValueCenter(note.getPitch() + OFFSET_V);
-  }
+  lib.scrollToNote(note, {
+    SCROLL_H: SCROLL_H,
+    SCROLL_V: SCROLL_V,
+    OFFSET_V: OFFSET_V
+  });
 }
 
 function findPrevWithPhonemes() {
@@ -85,3 +73,7 @@ function main() {
   findPrevWithPhonemes();
   SV.finish();
 }
+
+var lib=lib||{};
+// Minified from https://github.com/claire-west/svstudio-scripts-dev/blob/main/reuse/scrollToNote.js
+lib.scrollToNote=function(a,b){var c=b.OFFSET_H||0,d=b.OFFSET_V||-6,e=void 0===b.SCROLL_H||b.SCROLL_H,f=void 0===b.SCROLL_V||b.SCROLL_V,g=SV.getMainEditor().getNavigation();if(e){var h=a.getOnset(),i=(a.getEnd()-h)/2,j=g.getTimeViewRange(),k=j[1]-j[0],l=h+i-k/2;l<0&&(l=0),g.setTimeLeft(l+c)}f&&g.setValueCenter(a.getPitch()+d)};

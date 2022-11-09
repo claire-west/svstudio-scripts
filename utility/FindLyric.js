@@ -23,7 +23,7 @@ function getClientInfo() {
     "name": SV.T(SCRIPT_TITLE),
     "category": "Claire's Scripts - Utility",
     "author": "https://github.com/claire-west/svstudio-scripts",
-    "versionNumber": 1,
+    "versionNumber": 2,
     "minEditorVersion": 65537
   }
 }
@@ -66,63 +66,10 @@ var form = {
 };
 
 function scrollToNote(note) {
-  var viewport = SV.getMainEditor().getNavigation();
-
-  var onset = note.getOnset();
-  var distanceToMiddle = (note.getEnd() - onset) / 2;
-  var viewportRange = viewport.getTimeViewRange();
-  var viewportWidth = viewportRange[1] - viewportRange[0];
-  var targetLeft = onset + distanceToMiddle - (viewportWidth / 2);
-  if (targetLeft < 0) {
-    targetLeft = 0;
-  }
-  viewport.setTimeLeft(targetLeft);
-
-  if (SCROLL_V) {
-    viewport.setValueCenter(note.getPitch() + OFFSET_V);
-  }
-}
-
-function getStartingPoint(selection, currentGroup, answers) {
-  var selectedNotes = selection.getSelectedNotes();
-  var noteCount = currentGroup.getNumNotes();
-
-  if (selectedNotes.length > 0) {
-    return selectedNotes[0];
-  } else if (answers.backward) {
-    // start from the first note prior to playhead position
-    var timeAxis = SV.getProject().getTimeAxis();
-    var playheadSeconds = SV.getPlayback().getPlayhead();
-    var playhead = timeAxis.getBlickFromSeconds(playheadSeconds);
-
-    for (var i = noteCount - 1; i >= 0; i--) {
-      var note = currentGroup.getNote(i);
-      if (note.getOnset() < playhead) {
-        return note;
-      }
-    }
-    // no notes before playhead, start from the last note if wrapping or abort if not
-    if (answers.wrap) {
-      return currentGroup.getNote(noteCount - 1);
-    }
-  } else {
-    // start from the first note following playhead position
-    var timeAxis = SV.getProject().getTimeAxis();
-    var playheadSeconds = SV.getPlayback().getPlayhead();
-    var playhead = timeAxis.getBlickFromSeconds(playheadSeconds);
-
-    for (var i = 0; i < noteCount; i++) {
-      var note = currentGroup.getNote(i);
-      if (note.getOnset() > playhead) {
-        return note;
-      }
-    }
-    // no notes after playhead, start from the first note if wrapping or abort if not
-    if (answers.wrap) {
-      return currentGroup.getNote(0);
-    }
-  }
-  return null;
+  lib.scrollToNote(note, {
+    SCROLL_V: SCROLL_V,
+    OFFSET_V: OFFSET_V
+  });
 }
 
 function findLyric(answers) {
@@ -137,7 +84,7 @@ function findLyric(answers) {
     return;
   }
 
-  var startFromNote = getStartingPoint(selection, currentGroup, answers);
+  var startFromNote = lib.getNearestNote(selection, currentGroup, answers.backward, answers.wrap);
   if (startFromNote == null) {
     // reached end of search and not wrapping
     if (SHOW_ERROR_POPUPS) {
@@ -231,5 +178,16 @@ function promptForLyric() {
 }
 
 function main() {
+  var selection = SV.getMainEditor().getSelection();
+  var selectedNotes = selection.getSelectedNotes();
+  if (selectedNotes.length > 0) {
+    form.widgets[0].default = selectedNotes[0].getLyrics();
+  }
   promptForLyric();
 }
+
+var lib=lib||{};
+// Minified from https://github.com/claire-west/svstudio-scripts-dev/blob/main/reuse/getNearestNote.js
+lib.getNearestNote=function(a,b,c,d){var e=a.getSelectedNotes(),f=b.getNumNotes();if(e.length>0)return e[0];if(c){for(var g=SV.getProject().getTimeAxis(),h=SV.getPlayback().getPlayhead(),i=g.getBlickFromSeconds(h),j=f-1;j>=0;j--){var k=b.getNote(j);if(k.getOnset()<i)return k}if(d)return b.getNote(f-1)}else{for(var g=SV.getProject().getTimeAxis(),h=SV.getPlayback().getPlayhead(),i=g.getBlickFromSeconds(h),j=0;j<f;j++){var k=b.getNote(j);if(k.getOnset()>i)return k}if(d)return b.getNote(0)}return null};
+// Minified from https://github.com/claire-west/svstudio-scripts-dev/blob/main/reuse/scrollToNote.js
+lib.scrollToNote=function(a,b){var c=b.OFFSET_H||0,d=b.OFFSET_V||-6,e=void 0===b.SCROLL_H||b.SCROLL_H,f=void 0===b.SCROLL_V||b.SCROLL_V,g=SV.getMainEditor().getNavigation();if(e){var h=a.getOnset(),i=(a.getEnd()-h)/2,j=g.getTimeViewRange(),k=j[1]-j[0],l=h+i-k/2;l<0&&(l=0),g.setTimeLeft(l+c)}f&&g.setValueCenter(a.getPitch()+d)};
