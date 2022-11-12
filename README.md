@@ -1,4 +1,4 @@
-Download this repository as a zip file: https://github.com/claire-west/svstudio-scripts/zipball/main/
+Download a zip file of this repository from the "Releases" section on the right side of the page.
 
 # svstudio-scripts
 A collection of scripts for Synthesizer V Studio Pro
