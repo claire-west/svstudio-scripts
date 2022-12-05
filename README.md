@@ -1,5 +1,8 @@
 Download a zip file of this repository from the "Releases" section on the right side of the page.
 
+## Where to find more scripts
+A catalog of scripts from other users has been compiled on my website: https://synthv.info/#resource-scripts
+
 # svstudio-scripts
 A collection of scripts for Synthesizer V Studio Pro
 
