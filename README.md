@@ -1,5 +1,7 @@
 Download a zip file of this repository from the "Releases" section on the right side of the page.
 
+For individual script downloads: https://claire-west.github.io/svstudio-scripts/
+
 ## Where to find more scripts
 A catalog of scripts from other users has been compiled on my website: https://synthv.info/resource-scripts
 
