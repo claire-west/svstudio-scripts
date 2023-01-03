@@ -1,4 +1,5 @@
 // selects all notes matching the provided phonemes
+// does not support partial matches, only if the note's phonemes match the user input
 var SCRIPT_TITLE = "Select All With Phonemes";
 
 var FORM_DEFAULTS = {
