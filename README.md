@@ -1,4 +1,4 @@
-Download a zip file of this repository from the "Releases" section on the right side of the page.
+Download a zip file with all the scripts in this repository: https://github.com/claire-west/svstudio-scripts/releases/latest
 
 For individual script downloads: https://claire-west.github.io/svstudio-scripts/
 
