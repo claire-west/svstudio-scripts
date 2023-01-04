@@ -57,7 +57,7 @@ function move() {
       snapDiff = snappedOnset - newOnset;
     }
 
-    selectedNotes[i].setOnset(newOnset - snapDiff);
+    selectedNotes[i].setOnset(newOnset + snapDiff);
   }
 }
 
