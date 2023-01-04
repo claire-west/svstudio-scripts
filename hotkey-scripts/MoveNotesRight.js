@@ -46,15 +46,18 @@ function move() {
     shiftBy = QUARTERS_TO_MOVE * SV.QUARTER;
   }
 
+  var snapDiff = 0;
   for (var i = 0; i < selectedNotes.length; i++) {
     var currOnset = selectedNotes[i].getOnset();
     var newOnset = currOnset + shiftBy;
 
-    if (SNAP_FINAL_POSITION) {
-      newOnset = lib.smartSnap(newOnset, snapSetting * SNAP_THRESHOLD);
+    // only perform snapping on the first note in selection, adjust all others by same amount
+    if (i === 0 && SNAP_FINAL_POSITION) {
+      var snappedOnset = lib.smartSnap(newOnset, snapSetting * SNAP_THRESHOLD);
+      snapDiff = snappedOnset - newOnset;
     }
 
-    selectedNotes[i].setOnset(newOnset);
+    selectedNotes[i].setOnset(newOnset - snapDiff);
   }
 }
 
