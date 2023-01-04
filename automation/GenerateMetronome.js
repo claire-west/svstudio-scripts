@@ -1,3 +1,4 @@
+// deprecated as of 1.8.0
 // generates a track that functions as a metronome using SynthV's default sine tone
 var SCRIPT_TITLE = "Generate Metronome";
 
