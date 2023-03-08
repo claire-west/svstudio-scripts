@@ -49,14 +49,19 @@ function move() {
   var snapDiff = 0;
   for (var i = 0; i < selectedNotes.length; i++) {
     var currOnset = selectedNotes[i].getOnset();
-    var newOnset = currOnset + shiftBy;
 
     // only perform snapping on the first note in selection, adjust all others by same amount
     if (i === 0 && SNAP_FINAL_POSITION) {
-      var snappedOnset = lib.smartSnap(newOnset, snapSetting * SNAP_THRESHOLD);
-      snapDiff = snappedOnset - newOnset;
+      var snappedOnset = lib.smartSnap(currOnset, snapSetting * SNAP_THRESHOLD);
+      snapDiff = snappedOnset - currOnset;
+
+    // if snapping already moved the note to the right, don't move an extra grid distance
+    if (snapDiff > 0) {
+      shiftBy = 0;
+    }
     }
 
+    var newOnset = currOnset + shiftBy;
     selectedNotes[i].setOnset(newOnset + snapDiff);
   }
 }
