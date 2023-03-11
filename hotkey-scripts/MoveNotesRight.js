@@ -11,7 +11,7 @@ var SNAP_FINAL_POSITION = true;
 // if SNAP_FINAL_POSITION is true, only snap the final position if it is close to the grid
 // this is helpful if a note is intentionally offset by 25-50% of the current snap setting, so as not to override the user's timing changes
 // for example, a note with 1/32 offset on a 1/8 or 1/16 grid is assumed to be intentional and will not snap to the larger grid, but a 1/32 offset on a 1/4 grid will snap
-// to always snap to grid, set it to 0.51
+// to always snap to grid, set it to 0.51 or higher
 // to never snap to grid, set it to 0 (or set SNAP_FINAL_POSITION to false)
 // to manually snap to the grid, use the built-in "Snap to Grid" function under the "Modify" menu
 var SNAP_THRESHOLD = 0.25;
