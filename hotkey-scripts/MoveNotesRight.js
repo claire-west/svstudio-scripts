@@ -6,6 +6,7 @@ var SCRIPT_TITLE = "Move Notes Right";
 var MOVE_BY_SNAP_SETTING = true;
 
 // snap the final note position to the grid
+// you might not want this if you're doing detailed timing work
 var SNAP_FINAL_POSITION = true;
 
 // if SNAP_FINAL_POSITION is true, only snap the final position if it is close to the grid
