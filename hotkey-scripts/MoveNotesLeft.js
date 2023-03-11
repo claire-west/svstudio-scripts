@@ -26,7 +26,7 @@ function getClientInfo() {
     "name": SV.T(SCRIPT_TITLE),
     "category": "Claire's Scripts - Hotkey Scripts",
     "author": "https://github.com/claire-west/svstudio-scripts",
-    "versionNumber": 3,
+    "versionNumber": 4,
     "minEditorVersion": 65537
   }
 }
