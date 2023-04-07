@@ -6,7 +6,7 @@ function getClientInfo() {
     "name": SV.T(SCRIPT_TITLE),
     "category": "Claire's Scripts - Utility",
     "author": "https://github.com/claire-west/svstudio-scripts",
-    "versionNumber": 1,
+    "versionNumber": 2,
     "minEditorVersion": 65537
   }
 }
@@ -251,7 +251,12 @@ function cloneParam(args) {
 
   var offset = PARAMS[args.toParam].defaultVal - (PARAMS[args.fromParam].defaultVal / ratio);
 
-  toParam.removeAll();
+  if (selectedNotes.length > 0) {
+    toParam.remove(selectedNotes[0].getOnset(), selectedNotes[selectedNotes.length - 1].getEnd());
+  } else {
+    toParam.removeAll();
+  }
+
   for (var i = 0; i < points.length; i++) {
     var pos = points[i][0];
     var val = points[i][1];
