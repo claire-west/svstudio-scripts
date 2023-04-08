@@ -1,4 +1,7 @@
-// resets all the property and parameter changes for a project. potentially useful if you want to distribute an untuned/bare version of your SVP for people to make covers with, or if you received a tuned SVP and want to work from a blank slate.
+/** ResetAllNotes.js
+ * Resets all the property and parameter changes for a project.
+ * Useful if you want to distribute an untuned/"bare" version of your SVP for people to make covers with, or if you received a tuned SVP and want to work from a blank slate.
+ */
 // please make sure to back up your project before running this. "undo" will work, but if you save and exit the program there's no going back.
 var SCRIPT_TITLE = "Reset All Notes";
 

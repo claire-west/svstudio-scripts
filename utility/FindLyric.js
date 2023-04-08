@@ -1,4 +1,6 @@
-// selects the next/previous note matching the provided lyric
+/** FindLyric.js
+ * Find notes matching a specified lyric or phoneme sequence.
+ */
 // will start searching from the currently selected note, or if nothing is selected, from the current playhead position
 var SCRIPT_TITLE = "Find Lyric";
 

@@ -1,5 +1,7 @@
-// watches the selection for changes and plays a preview when one is detected (this script may cause lag)
-// it is VERY IMPORTANT that you only run this once (don't hotkey it), it will continue running until you stop it and running it twice will mean it checks for changes twice as often!
+/** LivePreview.js
+ * Monitors the notes and automatically plays a preview when something is changed.
+ */
+// it is important that you only run this once (don't hotkey it), it will continue running until you stop it and running it twice will mean it checks for changes twice as often!
 // this script will only stop running if you select the "Abort All Running Scripts" option from the top Scripts menu
 var SCRIPT_TITLE = "Start Live Preview";
 

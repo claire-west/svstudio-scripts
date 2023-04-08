@@ -1,4 +1,7 @@
-// copies a parameter curve of one type to a different type for the selection or entire track
+/** CloneParameterCurve.js
+ * Clones a parameter curve of one type to a different type for the selection or entire track.
+ * For example, converting a tension curve to a vocal mode, or copying a pitch curve to a different track.
+ */
 var SCRIPT_TITLE = 'Clone Parameter Curve';
 
 function getClientInfo() {
@@ -6,7 +9,7 @@ function getClientInfo() {
     "name": SV.T(SCRIPT_TITLE),
     "category": "Claire's Scripts - Utility",
     "author": "https://github.com/claire-west/svstudio-scripts",
-    "versionNumber": 2,
+    "versionNumber": 3,
     "minEditorVersion": 65537
   }
 }
@@ -272,8 +275,17 @@ function cloneParam(args) {
   DEBUG && SV.showMessageBox(SV.T(SCRIPT_TITLE), 'Points created without error');
 }
 
+function capitalize(string) {
+  return string.charAt(0).toLocaleUpperCase() + string.slice(1).toLocaleLowerCase();
+}
+
 function capitalizeVocalMode(vocalMode) {
-  return vocalMode.charAt(0).toLocaleUpperCase() + vocalMode.slice(1).toLocaleLowerCase();
+  // support multi-word vocal modes (like Maki's "Power_Pop")
+  var parts = vocalMode.split('_');
+  for (var i = 0; i < parts.length; i++) {
+    parts[i] = capitalize(parts[i]);
+  }
+  return parts.join('_');
 }
 
 function main() {

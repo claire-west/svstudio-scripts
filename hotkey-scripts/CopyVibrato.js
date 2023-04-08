@@ -1,4 +1,6 @@
-// copies the selected note's vibrato settings to the clipboard
+/** CopyVibrato.js
+ * Copies the selected note's vibrato settings (from the Note Properties panel) to the clipboard
+ */
 var SCRIPT_TITLE = "Copy Vibrato";
 
 function getClientInfo() {

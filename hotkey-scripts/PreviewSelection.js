@@ -1,5 +1,7 @@
-// plays only the selected section
-// intended to quickly preview your changes without manually moving the playhead
+/** PreviewSelection.js
+ * Immediately plays the selected notes, then stops playback.
+ * Intended to quickly preview your changes without manually moving the playhead.
+ */
 var SCRIPT_TITLE = "Preview Selection";
 
 // start this number of measures before the selection

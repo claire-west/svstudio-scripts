@@ -1,4 +1,6 @@
-// paste the copied vibrato settings to the selected note
+/** PasteVibrato.js
+ * Paste the vibrato settings copied with CopyVibrato.js to the selected note
+ */
 var SCRIPT_TITLE = "Paste Vibrato";
 
 function getClientInfo() {
