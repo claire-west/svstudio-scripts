@@ -10,7 +10,7 @@ function getClientInfo() {
     "category": "Claire's Scripts - Utility",
     "author": "https://github.com/claire-west/svstudio-scripts",
     "versionNumber": 3,
-    "minEditorVersion": 65537
+    "minEditorVersion": 67072
   }
 }
 
