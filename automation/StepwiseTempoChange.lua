@@ -110,11 +110,9 @@ function validateUserInput(args)
   return values
 end
 
---[[
-  There is no built-in function for getting the blicks for a specific measure number.
-  Time signature markers can be fetched by measure number, and have a property for their position in blicks,
-  so we can create a dummy time signature marker to figure out the conversion.
---]]
+-- There is no built-in function for getting the blicks for a specific measure number.
+-- Time signature markers can be fetched by measure number, and have a property for their position in blicks,
+-- so we can create a dummy time signature marker to figure out the conversion.
 function measureToBlicks(measure)
   local timeAxis = SV:getProject():getTimeAxis()
 
