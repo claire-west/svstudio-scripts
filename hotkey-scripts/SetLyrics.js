@@ -22,8 +22,6 @@ function setLyrics() {
     return;
   }
 
-  var note = selectedNotes[0];
-
   // need to use a custom form since SV.showInputBox doesn't distinguish between empty input and the cancel button being pressed
   var form = {
     title: SV.T(SCRIPT_TITLE),
@@ -32,14 +30,16 @@ function setLyrics() {
       {
         name: 'input',
         type: 'TextBox',
-        default: note.getLyrics()
+        default: selectedNotes[0].getLyrics()
       }
     ]
   };
 
   var result = SV.showCustomDialog(form);
   if (result.status == 1) {
-    note.setLyrics(result.answers.input);
+    for (var i = 0; i < selectedNotes.length; i++) {
+      selectedNotes[i].setLyrics(result.answers.input);
+    }
   }
 }
 

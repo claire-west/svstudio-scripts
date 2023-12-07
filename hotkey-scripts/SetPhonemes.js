@@ -21,8 +21,6 @@ function setPhonemes() {
     return;
   }
 
-  var note = selectedNotes[0];
-
   // need to use a custom form since SV.showInputBox doesn't distinguish between empty input and the cancel button being pressed
   var form = {
     title: SV.T(SCRIPT_TITLE),
@@ -31,14 +29,16 @@ function setPhonemes() {
       {
         name: 'input',
         type: 'TextBox',
-        default: note.getPhonemes()
+        default: selectedNotes[0].getPhonemes()
       }
     ]
   };
 
   var result = SV.showCustomDialog(form);
   if (result.status == 1) {
-    note.setPhonemes(result.answers.input);
+    for (var i = 0; i < selectedNotes.length; i++) {
+      selectedNotes[i].setPhonemes(result.answers.input);
+    }
   }
 }
 
